@@ -13,7 +13,7 @@ Card,
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 
-function CartScreen({}) {
+function CartScreen() {
 const { id } = useParams();
 const productId = id;
 
@@ -38,6 +38,11 @@ const removeFromCartHandler = (id) => {
 }
 
 let navigate = useNavigate();
+
+// const checkoutHandler = () => {
+//     navigate('/login?redirect=/shipping')
+// }
+
 const checkoutHandler = () => {
     if(!userInfo){
         navigate('/login')
@@ -103,7 +108,8 @@ return (
                     <Button type="button" 
                     className="btn-block" 
                     disabled={cartItems.length === 0}
-                    onClick={checkoutHandler}>
+                    onClick={checkoutHandler}
+                    >
                         Proceed To Checkout
                     </Button>
                 </ListGroup.Item>
